@@ -1,0 +1,11 @@
+> which(sapply(a,is.numeric)==FALSE)
+                     school_metro                    teacher_prefix 
+                                5                                 6 
+        teacher_teach_for_america        teacher_ny_teaching_fellow 
+                                7                                 8 
+eligible_double_your_impact_match        eligible_almost_home_match 
+                               11                                12 
+                    poverty_level                primary_focus_area 
+                               13                                14 
+                    resource_type                           weekday 
+                               15                                27 
