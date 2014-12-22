@@ -2,24 +2,20 @@ require(gbm)
 require(sqldf)
 ##options(java.parameters = "-Xmx32g")
 require(extraTrees)
-my_cap<-function(v, l, h){
-  v[v<l]<-l
-  v[v>h]<-h
-  return(v)
-}
+
 resodf <- read.csv("resources.csv")
 projdf <- read.csv("projects.csv")
 outcomedf <- read.csv("outcomes.csv")
-activeTeacherdf <- read.csv("activeTeacher20100401.csv")
-whichSchooldf <- read.csv("whichSchool.csv")
-schoolDistrictdf <- read.csv("schoolDistrict20100401.csv ")
-schoolInCitydf <- read.csv("schoolInCity_20100401.csv")
-schoolInCountydf <- read.csv("schoolInCounty_20100401.csv")
-zipOfSchooldf <- read.csv("zipOfSchool_20100401.csv")
-stateOfSchooldf <- read.csv("stateOfSchool.csv")
-getDonorEachTeacherdf <- read.csv("getDonorEachTeacher.csv")
+activeTeacherdf <- read.csv("teacher_acctid_history.csv")
+whichSchooldf <- read.csv("schoolid_history.csv")
+schoolDistrictdf <- read.csv("school_district_history.csv ")
+schoolInCitydf <- read.csv("school_city_history.csv")
+schoolInCountydf <- read.csv("school_county_history.csv")
+zipOfSchooldf <- read.csv("school_zip_history.csv")
+stateOfSchooldf <- read.csv("school_state_history.csv")
+getDonorEachTeacherdf <- read.csv("getDonor_teacher_acctid.csv")
 getDonorEachTeacherdf <- getDonorEachTeacherdf[,!(colnames(getDonorEachTeacherdf) %in% c("eachTeacherActDays","teacherActProjCount", "teacherActProjCount_train"))]
-getDonorEachSchooldf <- read.csv("getDonorEachSchool.csv")
+getDonorEachSchooldf <- read.csv("getDonor_schoolid.csv")
 getDonorEachSchooldf <- getDonorEachSchooldf[,!(colnames(getDonorEachSchooldf) %in% c("daysOfSchool","cntOfSchool", "cntOfSchool_train"))]
 resodf$totalPrice <- with(resodf, unitPriceOfItem*quantityOfItem)
 resodf$resourceType <- with(resodf, ifelse(project_typeOfReso=="","Other", as.character(project_typeOfReso)))
